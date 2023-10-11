@@ -1,3 +1,2 @@
 Getting Git is legit.
 another line.
-secret.txt
