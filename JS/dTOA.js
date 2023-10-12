@@ -113,15 +113,15 @@
 // console.log(sample.substring(6, 12))
 //
 //
-// let movies = 3
-// //this is the base number for the daily rental rate
-// let days = prompt("input combined days all movies were rented")
-// //adds an on-screen prompt for the user to input the combined number of days all movies have been rented
-// let total = (movies * days)
-// //combines the totals
-// console.log(`The total amount is $${total}`)
-// //displays for the user to see the total amount the movies will cost.
-//
+let movies = 3
+//this is the base number for the daily rental rate
+let days = prompt("input combined days all movies were rented")
+//adds an on-screen prompt for the user to input the combined number of days all movies have been rented
+let total = (movies * days)
+//combines the totals
+console.log(`The total amount is $${total}`)
+//displays for the user to see the total amount the movies will cost.
+
 //
 // let google = 400
 // let amazon = 380
