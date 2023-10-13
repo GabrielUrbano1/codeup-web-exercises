@@ -27,6 +27,7 @@ alert(`The total amount is $${total.toFixed(2)}`)
 let google = prompt("enter hourly wage for google")
 //prompts user for google base pay
 let gh = prompt("enter how many hours worked")
+
 //prompts user for google hours worked
 let amazon = prompt("enter hourly wage for amazon")
 //prompts user for amazon base pay
