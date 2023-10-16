@@ -9,9 +9,9 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-// function sayHello(name){
-//     return ("Hello " + name)
-// }
+function sayHello(name){
+    return ("Hello " + name)
+}
 
 /**
  * TODO:
@@ -21,25 +21,26 @@
  * console.log 'helloMessage' to check your work
  */
 
-// let helloMessage = sayHello("Gabriel Urbano")
-//
-// console.log(helloMessage)
-//
-//
-//
-// /**
-//  * TODO:
-//  * Store your name as a string in a variable named 'myName', and pass that
-//  * variable to the 'sayHello' function. You should see the same output in the
-//  * console.
-//  */
-// let myName = "Gabriel Urbano"
-//
-// console.log(sayHello(myName))
+let helloMessage = sayHello("Gabriel Urbano")
 
-// Don't modify the following line, it generates a random number between 1 and 3
-// and stores it in a variable named random
+console.log(helloMessage)
 
+
+
+/**
+ * TODO:
+ * Store your name as a string in a variable named 'myName', and pass that
+ * variable to the 'sayHello' function. You should see the same output in the
+ * console.
+ */
+let myName = "Gabriel Urbano"
+
+console.log(sayHello(myName))
+
+/**
+ * Don't modify the following line, it generates a random number between 1 and 3
+ * and stores it in a variable named random
+*/
 
 const random = Math.floor((Math.random() * 3) + 1);
 
@@ -64,11 +65,11 @@ console.log(random)
  * number)
  */
 
-// function isTwo(num) {
-//     return (num) == 2
-// }
-//
-// console.log(isTwo(random))
+function isTwo(num) {
+    return (num) == 2
+}
+
+console.log(isTwo(random))
 
 /**
  * TODO:
@@ -119,7 +120,7 @@ alert("You should tip $" + reqTip.toFixed(2)+" based on your input")
  * > let discountPercent = .2; // 20%
  * > applyDiscount(originalPrice, discountPercent) // 80
  *
- * > applyDiscount(45.99, 0.12) // 40.4712
+ * > applyDiscount(45.99, 0.12) // 40.47122
  */
 
 function applyDiscount(price, discount) {
