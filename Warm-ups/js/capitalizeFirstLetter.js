@@ -1,10 +1,5 @@
-// function capitalizeFirstLetter(input) => input.indexOf(0).toUpperCase;
-//
-//
-// console.log(capitalizeFirstLetter("this is a string"))
 
-
-const capitalizeFirstLetter = (input) => input.toUpperCase().charAt(0)  + input.slice(1);
+const capitalizeFirstLetter = (input) => input.toUpperCase().charAt(0)  + input.slice(1)
 
 console.log(capitalizeFirstLetter("codeup"))
 
