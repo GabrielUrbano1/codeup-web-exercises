@@ -21,48 +21,40 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-    'red',
+'red',
     'orange',
     'yellow',
     'green',
     'blue',
     'indigo',
     'violet'
-function analyzeColor(color) {
-     let analyzecolor = color
-    // function analyzeColor(color) {
-    //  let analyzecolor = color
-    if (analyzecolor == "red"){
-        return "red is the color of roses"
-    }
-    else if (analyzecolor == "blue"){
-        return "blue is the color of the sky"
-    }
-    else if (analyzecolor == "yellow"){
-        return "yellow is the color of sunflowers"
-    }
-    else if (analyzecolor == "orange"){
-        return "orange is the color of oranges"
-    }
-    else if (analyzecolor == "green"){
-        return "green is the color of grass"
-    }
-    else if (analyzecolor == "indigo"){
-        return "indigo is the color of some grapes"
-    }
-    else if (analyzecolor == "violet"){
-        return "violet is the color of eggplant"
-    }
-    else {
-        return "I don't know anything about " + analyzecolor
-    }
-
-}
-
-
-
-
-
+// function analyzeColor(color) {
+//     if (color == "red"){
+//         return "red is the color of roses"
+//     }
+//     else if (color == "blue"){
+//         return "blue is the color of the sky"
+//     }
+//     else if (color == "yellow"){
+//         return "yellow is the color of sunflowers"
+//     }
+//     else if (color == "orange"){
+//         return "orange is the color of oranges"
+//     }
+//     else if (color == "green"){
+//         return "green is the color of grass"
+//     }
+//     else if (color == "indigo"){
+//         return "indigo is the color of some grapes"
+//     }
+//     else if (color == "violet"){
+//         return "violet is the color of eggplant"
+//     }
+//     else {
+//         return "I don't know anything about " + color
+//     }
+//
+// }
 
 
 // Don't change the next two lines!
@@ -96,16 +88,8 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
 //     case "yellow":
 //         console.log("yellow is for daisy's")
 //         break;
-//     case "green":
-//         console.log("green is for grass");
-//         break;
-//     case "blue":
-//         console.log("blue is for the sky");
-//         break;
-//     case "violet":
-//         console.log("Purple is the color of some grapes")
-//     case "indigo":
-//         console.log("I do not know anything by that color");
+//     default:
+//         console.log("I do not know anything about "+ randomColor);
 //         break;
 // }
 
@@ -117,36 +101,34 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * function to show it to the user.
  */
 // function analyzeColor(color) {
-//     let analyzecolor = color
-//     // function analyzeColor(color) {
-//     //  let analyzecolor = color
-//     if (analyzecolor == "red"){
+//     if (color == "red"){
 //         return alert("red is the color of roses")
 //     }
-//     else if (analyzecolor == "blue"){
+//     else if (color == "blue"){
 //         return alert("blue is the color of the sky")
 //     }
-//     else if (analyzecolor == "yellow"){
+//     else if (color == "yellow"){
 //         return alert("yellow is the color of sunflowers")
 //     }
-//     else if (analyzecolor == "orange"){
+//     else if (color == "orange"){
 //         return alert("orange is the color of oranges")
 //     }
-//     else if (analyzecolor == "green"){
+//     else if (color == "green"){
 //         return alert("green is the color of grass")
 //     }
-//     else if (analyzecolor == "indigo"){
+//     else if (color == "indigo"){
 //         return alert("indigo is the color of some grapes")
 //     }
-//     else if (analyzecolor == "violet"){
+//     else if (color == "violet"){
 //         return alert("violet is the color of eggplant")
 //     }
 //     else {
-//         return alert("I don't know anything about " + analyzecolor)
+//         return alert("I don't know anything about " + color)
 //     }
 //
 // }
-
+//
+// console.log(analyzeColor(randomColor))
 
 
 /**
@@ -186,7 +168,7 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
 //             return totalAmount;
 //     }
 // }
-//
+
 // console.log(calculateTotal(2,10))
 
 /**
@@ -197,11 +179,15 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
+
+
 // Generate a random number between 0 and 6
 // const luckyNumber = Math.floor(Math.random() * 6);
 //
 // let totalBill = prompt("what is your total bill?")
-// console.log(alert(calculateTotal(luckyNumber, totalBill)))
+// console.log(alert(`your lucky number is ${luckyNumber}
+// your total before discount is $${totalBill}
+// your total after discount is $${calculateTotal(luckyNumber,totalBill)}`))
 
 
 /**
@@ -223,35 +209,27 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * HINT: The way we prompt for a value could be improved
  */
 // let input = confirm("Would you like to pick a number?")
-
-
-
+//
+//
 // //finds if the number is odd or even
 // function isOddOrEven(number) {
 //     let input = parseInt(prompt("input a number"))
-//     if (input % 2 === 0){
+//     if (input % 2 === 0) {
 //         return alert("This is an even number")
-//     }
-//     else if (input % 2 !== 0) {
+//     } else if (input % 2 !== 0) {
 //         return alert("This is an odd number")
-//     }
-//     else{
+//     } else {
 //         return alert("this number is neither odd nor even")
 //     }
 // }
 //
 //
-//
-//
-//
 // //adds 100 to the given number
 // function plus100(number) {
 //     let input = parseInt(prompt("input a number"))
-//     let maths= input + 100
-//     alert(maths)
+//     let math = input + 100
+//     alert(math)
 // }
-//
-//
 //
 //
 // // finds if the number is negative or positive
@@ -267,13 +245,70 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
 //         alert("This number is 0");
 //     }
 // }
-function confirmUserInput(input){
-    let userInput = confirm("would you like to pick a number?")
-    if (userInput == 1){
-        return prompt("Input a number")
-    }
-    else if (userInput == 0); {
+//
+// // function confirmUserInput(input){
+// //     let userInput = confirm("would you like to pick a number?")
+// //     if (userInput == 1){
+// //         return prompt("Input a number")
+// //     }
+// //     else if (userInput == 0); {
+// //         return prompt("Lame")
+// //     }
+// // }
+// //
+// // alert(isOddOrEven(), plus100(), negOrPos())
+//
+//
+// let userInput = confirm("would you like to enter a number?"){
+//     let number = prompt("Enter a Number")
+//     if (number (!isNaN())){
+//         alert(isOddOrEven() + plus100() + negOrPos())
+//     }
+// }
+
+
+
+
+// -------------------Class walk through-----------
+
+
+let userInput = confirm("Would you like to enter a number?")
+
+
+if (userInput) {
+    let userInput = parseFloat(prompt("Input a number"))
+    if (isNaN(!userInput)) {
+        alert("You did not input a number")
+    } else {
+        alert(isEveOrOdd(userInput))
+        alert(plus100(userInput))
+        alert(posNeg(userInput))
     }
 }
 
-console.log(confirmUserInput())
+
+function isEveOrOdd(num) {
+    if (num === 0) {
+        return `${num} is neither even or odd`
+    }
+    if (num % 2 === 0) {
+        return `${num} is an even number`
+    } else if (num % 2 === 1) {
+        return `${num} is an odd number`
+    }
+}
+
+function plus100(num) {
+    return `${num}+100 is ${num + 100}`
+}
+
+function posNeg(num) {
+    if (num > 0) {
+        return `${num} is a positive number`
+    } else if (num < 0) {
+        return `${num} is a negative number`
+    } else {
+        return `${num} is neither positive or negative`
+    }
+}
+
