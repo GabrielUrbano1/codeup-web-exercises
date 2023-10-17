@@ -226,54 +226,53 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 
 
-//finds if the number is odd or even
-function isOddOrEven(number) {
-    let input = parseInt(prompt("input a number"))
-    if (input % 2 === 0){
-        return alert("This is an even number")
-    }
-    else if (input % 2 !== 0) {
-        return alert("This is an odd number")
-    }
-    else{
-        return alert("this number is neither odd nor even")
-    }
-}
-
-
-
-
-
-//adds 100 to the given number
-function plus100(number) {
-    let input = parseInt(prompt("input a number"))
-    let maths= input + 100
-    alert(maths)
-}
-
-
-
-
-// finds if the number is negative or positive
-function negOrPos() {
-    let input = parseFloat(prompt("Enter a number"));
-    if (isNaN(input)) {
-        alert("Invalid input. Please enter a valid number.");
-    } else if (input > 0) {
-        alert("This is a Positive number");
-    } else if (input < 0) {
-        alert("This is a negative number");
-    } else {
-        alert("This number is 0");
-    }
-}
+// //finds if the number is odd or even
+// function isOddOrEven(number) {
+//     let input = parseInt(prompt("input a number"))
+//     if (input % 2 === 0){
+//         return alert("This is an even number")
+//     }
+//     else if (input % 2 !== 0) {
+//         return alert("This is an odd number")
+//     }
+//     else{
+//         return alert("this number is neither odd nor even")
+//     }
+// }
+//
+//
+//
+//
+//
+// //adds 100 to the given number
+// function plus100(number) {
+//     let input = parseInt(prompt("input a number"))
+//     let maths= input + 100
+//     alert(maths)
+// }
+//
+//
+//
+//
+// // finds if the number is negative or positive
+// function negOrPos() {
+//     let input = parseFloat(prompt("Enter a number"));
+//     if (isNaN(input)) {
+//         alert("Invalid input. Please enter a valid number.");
+//     } else if (input > 0) {
+//         alert("This is a Positive number");
+//     } else if (input < 0) {
+//         alert("This is a negative number");
+//     } else {
+//         alert("This number is 0");
+//     }
+// }
 function confirmUserInput(input){
-    let userInput = confirm()
-    if (true){
-        return ("Input a number")
+    let userInput = confirm("would you like to pick a number?")
+    if (userInput == 1){
+        return prompt("Input a number")
     }
-    else{
-        return ("carry on")
+    else if (userInput == 0); {
     }
 }
 
