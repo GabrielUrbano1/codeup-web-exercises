@@ -15,6 +15,7 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 
 do {
     let conesToSell = Math.floor(Math.random() * 5) + 1;
+    console.log("I have " + (allCones) + " cones remaining!")
     if (conesToSell <= allCones) {
         console.log(conesToSell + " cones sold...");
         allCones -= conesToSell;
