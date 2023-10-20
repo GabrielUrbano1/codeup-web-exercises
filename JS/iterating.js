@@ -12,29 +12,29 @@ const names = ['jane', 'jeff', 'john', 'jake']
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-// console.log(names.length)
+console.log(names.length)
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
-// console.log(names[0])
-// console.log(names[1])
-// console.log(names[2])
-// console.log(names[3])
+console.log(names[0])
+console.log(names[1])
+console.log(names[2])
+console.log(names[3])
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
-// for(let i = 0; i < names.length; i++){
-//     console.log("My friends names are " + names[i]);
-// }
+for(let i = 0; i < names.length; i++){
+    console.log("My friends names are " + names[i]);
+}
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-// names.forEach(names => console.log(`My friends names are ${names}`))
+names.forEach(names => console.log(`My friends names are ${names}`))
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -51,38 +51,21 @@ const names = ['jane', 'jeff', 'john', 'jake']
 // calls the first number of an array
 const numbers = ['1','2','3','4','5']
     function first(){
-        for (let num of numbers) {
-            if (num === numbers[0]) {
-                console.log(num)
-            }
-
-        }
+        return numbers[0]
     }
-//
-// send()
-//
+
 
     //calls the second number of an array
     function second(){
-        for (let num of numbers) {
-            if (num === numbers[1]) {
-                console.log(num)
-            }
-
-        }
+        return numbers[1]
     }
     //calls the last number of the array
     function last(){
-        for (let num of numbers) {
-            if (num === numbers[numbers.length-1]) {
-                console.log(num)
-            }
-
-        }
+            return numbers[numbers.length-1]
     }
 
-
-
+//
+//
 // this function combines the output of the above 3 functions into one
     function send(){
         for (let num of numbers) {
@@ -93,6 +76,6 @@ const numbers = ['1','2','3','4','5']
         }
     }
     console.log(first(),second(),last())
-
-
+//
+//
     console.log(send())
