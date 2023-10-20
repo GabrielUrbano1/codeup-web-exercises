@@ -50,12 +50,14 @@
 //
 // }
 
-
-
+//----------------------10/20/2023---------------------------------
+//-----------function logs all numbers that are even from 1-100---------
 function isEven(){
-    for (i = 0; i <= 100; i += 2){
-        console.log(i)
+    for (i = 2; i <= 100; i += 2){
+        console.log(i+ " Is Even")
     }
 }
 
-console.log(isEven())
+isEven()
+
+
