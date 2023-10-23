@@ -1,6 +1,6 @@
 // this function declares a random number
 function randomNumber() {
-    return Math.floor(Math.random() * (10000000 - 1 + 1) + 1);
+    return Math.floor(Math.random() * (100 - 1 + 1) + 1);
 }
 // this is my initially empty array
     const randNumArr3 = []
