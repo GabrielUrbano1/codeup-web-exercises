@@ -90,8 +90,8 @@ let cars = [
 
 cars.forEach(cars =>{
     console.log(`the car make is ${cars.Make} the model is ${cars.Model} and the color is ${cars.Color}`)
-
-})
+    }
+)
 
 
 for (let car of cars){
