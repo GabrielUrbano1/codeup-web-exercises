@@ -20,7 +20,6 @@
 // }
 
 
-
 // let hello = "hello"
 // for(let i = 0; i < hello.length; i++){
 //     console.log(hello.charAt(i))
@@ -60,11 +59,41 @@
 //
 // isEven()
 
-//------------------------10/23/23-------------------------------
-const movies = ['Deadpool','300','gladiator','troy','click']
+// //------------------------10/23/23-------------------------------
+// const movies = ['Deadpool','300','gladiator','troy','click']
+//
+// movies.sort()
+// function moviesLoop(){
+//     movies.forEach(Movies => console.log(`My favorite movies are ${Movies}`))
+// }
+// moviesLoop()
 
-movies.sort()
-function moviesLoop(){
-    movies.forEach(Movies => console.log(`My favorite movies are ${Movies}`))
+
+//---------------------------10/24/2023--------------------------------
+
+
+let cars = [
+    {
+        Make: "Honda",
+        Model: "Civic",
+        Color: "Blue"
+    },    {
+        Make: "Toyota",
+        Model: "Tundra",
+        Color: "Red"
+    },    {
+        Make: "BMW",
+        Model: "M5",
+        Color: "White"
+    }
+]
+
+cars.forEach(cars =>{
+    console.log(`the car make is ${cars.Make} the model is ${cars.Model} and the color is ${cars.Color}`)
+
+})
+
+
+for (let car of cars){
+    console.log(`the car make is ${car.Make} the model is ${car.Model} and the color is ${car.Color}`)
 }
-moviesLoop()
