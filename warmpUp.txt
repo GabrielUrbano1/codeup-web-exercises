@@ -14,3 +14,9 @@ my ideal  job after completing the codeUp bootcamp, would align with a field tha
 
 
 
+SMART Goal
+Specific: After completing the CodeUp bootcamp, I aim to secure a software development role that challenges me and aligns with my newly acquired skills.
+Measurable: I will track my progress by applying to at least 10 relevant job positions per week.
+Achievable: I will work on building a portfolio of projects during and after the bootcamp to enhance my qualifications.
+Relevant: This goal aligns with my passion for coding and desire for consistent work-life balance.
+Time-bound: I will achieve this goal within 6 months after completing the bootcamp.
