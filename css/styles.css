@@ -25,14 +25,15 @@ em {
 
 /* selector for all elements with class="article" */
 .article {
-    clear:both;
+    clear: both;
 }
 
 /* selector for all "a" elements
    that are a direct child of an element with class="article" */
 .article > a {
-    float:right;
+    float: right;
 }
+
 /* styles.css */
 .fancy-header {
     text-align: center;
