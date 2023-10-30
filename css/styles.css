@@ -1,3 +1,96 @@
 .fancy-header {
     color: purple;
+    text-align: center;
+}
+
+/* selector for id="container" */
+#container {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
+
+/* selector for all "h1" elements
+   that are a descendant of id="container"
+   and have a class of "fancy-header" */
+#container .fancy-header h1 {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* selector for all "em" elements */
+em {
+    font-weight: bold;
+}
+
+/* selector for all elements with class="article" */
+.article {
+    clear:both;
+}
+
+/* selector for all "a" elements
+   that are a direct child of an element with class="article" */
+.article > a {
+    float:right;
+}
+/* styles.css */
+.fancy-header {
+    text-align: center;
+    color: red;
+}
+
+.section {
+    background-color: lightgray;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: blue;
+    text-decoration: underline;
+}
+
+body {
+    background-image: url('your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul {
+    list-style-type: square;
+}
+
+body {
+    font-family: 'Font Name', sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:active {
+    color: red;
 }
