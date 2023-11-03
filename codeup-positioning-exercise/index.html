@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Login Page with absolute positioning</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/resets.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+<div class="page-wrapper justify-center align-center">
+    <img src="images/dots-1.svg" class="dots-1">
+    <img src="images/dots-2.svg" class="dots-2">
+    <img src="images/wavy-lines-1.svg" class="wavy-lines-1">
+    <img src="images/wavy-lines-2.svg" class="wavy-lines-2">
+    <img src="images/footer-wave-top.svg" class="footer-top">
+    <img src="images/footer-wave-bottom.svg" class="footer-bottom">
+    <!-- ADD ABSOLUTE POSITIONED IMAGES HERE -->
+    <div class="container login">
+        <div class="circle">
+<!--            <img src="images/times-icon.svg" class="time-icon">-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none" class ='time-icon'>
+                <g filter="url(#filter0_d_101_5)">
+                    <circle cx="33.5" cy="33.5" r="25.5" fill="white"/>
+                </g>
+                <path d="M32.7624 33L24.6312 24.8688C24.2895 24.5271 24.2895 23.973 24.6312 23.6314C24.9728 23.2897 25.527 23.2897 25.8686 23.6314L33.9998 31.7626L42.131 23.6314C42.4727 23.2897 43.0268 23.2897 43.3684 23.6314C43.7101 23.973 43.7101 24.5272 43.3684 24.8688L35.2372 33L43.3684 41.1312C43.7101 41.4729 43.7101 42.027 43.3684 42.3686C43.0268 42.7103 42.4726 42.7103 42.131 42.3686L33.9998 34.2374L25.8686 42.3686C25.5269 42.7103 24.9728 42.7103 24.6312 42.3686C24.2895 42.027 24.2895 41.4728 24.6312 41.1312L32.7624 33Z" fill="black"/>
+                <defs>
+                    <filter id="filter0_d_101_5" x="0" y="0" width="67" height="67" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset/>
+                        <feGaussianBlur stdDeviation="4"/>
+                        <feComposite in2="hardAlpha" operator="out"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_101_5"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_101_5" result="shape"/>
+                    </filter>
+                </defs>
+            </svg>
+            <!-- ADD CANCEL BUTTON HERE -->
+            <div class="row">
+                <form class="column gap-20" method="POST">
+                    <h1>Login into Your Account</h1>
+                    <label class="input-group">
+                        <span class="input-label">Email</span>
+                        <input type="email" name="email" placeholder="yourname@company.com" required>
+                    </label>
+                    <div class="d-flex flex-column">
+                        <label class="input-group">
+                            <span class="input-label">Password*</span>
+                            <input type="password" name="password" placeholder="****************" required>
+                        </label>
+                        <div class="d-flex align-center justify-space-between">
+                            <label class="checkbox">
+                                <input type="checkbox" name="remember" checked>
+                                <span class="checkbox-label">Keep me signed in</span>
+                            </label>
+                            <a href="#" class="link">Forgot password?</a>
+                        </div>
+                    </div>
+                    <button type="submit" name="login" class="btn btn-login">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
