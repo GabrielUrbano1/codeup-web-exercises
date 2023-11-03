@@ -4,7 +4,7 @@
 // let name = "Gabriel Urbano"
 // let year = "2014"
 //
-// console.log(`My name is ${name} and I graduated high school in ${year}`);
+// console.log(`My name is ${name} and I graduated from high school in ${year}`);
 
 
 // let num = 100
@@ -72,28 +72,120 @@
 //---------------------------10/24/2023--------------------------------
 
 
-let cars = [
+// let cars = [
+//     {
+//         Make: "Honda",
+//         Model: "Civic",
+//         Color: "Blue"
+//     },    {
+//         Make: "Toyota",
+//         Model: "Tundra",
+//         Color: "Red"
+//     },    {
+//         Make: "BMW",
+//         Model: "M5",
+//         Color: "White"
+//     }
+// ]
+//
+// cars.forEach(cars =>{
+//     console.log(`the car make is ${cars.Make} the model is ${cars.Model} and the color is ${cars.Color}`)
+//     }
+// )
+//
+//
+// for (let car of cars){
+//     console.log(`the car make is ${car.Make} the model is ${car.Model} and the color is ${car.Color}`)
+// }
+
+
+//---------------------------11/01/2023--------------------------------
+
+// let developers = [
+//     {
+//         name: "Jonathan",
+//         languages: {
+//             frontend: ["HTML", "JavaScript", "CSS"],
+//             backend: ["Java"]
+//         }
+//     },
+//     {
+//         name: "Bonnie",
+//         languages: {
+//             frontend: ["JavaScript"],
+//             backend: []
+//         }
+//     },
+//     {
+//         name: "Raj",
+//         languages: {
+//             frontend: [],
+//             backend: ["C#", "Java", "Python"]
+//         }
+//     },
+//     {
+//         name: "Carmen",
+//         languages: {
+//             frontend: ["JavaScript", "HTML", "CSS", "React"],
+//             backend: ["C#", "Java", "Python", "TypeScript"]
+//         }
+//     }
+// ]
+//
+//
+//
+//
+// function printName() {
+//     let jsDevs =[];
+//     for (let i = 0; i < developers.length; i++) {
+//         if (developers[i].languages.frontend.includes("JavaScript")) {
+//             jsDevs.push(developers[i].name);
+//         }
+//     }return jsDevs;
+// }
+//
+//
+// console.log(printName())
+
+
+// Create a function that accepts three arguments (arrOfElements, bgColor, textColor), and returns the array of objects with their corresponding properties changed to the inputted values of bgColor and textColor.
+
+let elements = [
     {
-        Make: "Honda",
-        Model: "Civic",
-        Color: "Blue"
-    },    {
-        Make: "Toyota",
-        Model: "Tundra",
-        Color: "Red"
-    },    {
-        Make: "BMW",
-        Model: "M5",
-        Color: "White"
+        el: 'button',
+        style: {
+            backgroundColor: "white",
+            color: "black"
+        },
+        content: "Submit"
+    },
+    {
+        el: `p`,
+        style: {
+            backgroundColor: "white",
+            color: "black"
+        },
+        content: "Our company is better at doing company things than your company."
+    },
+    {
+        el: `h2`,
+        style: {
+            backgroundColor: "white",
+            color: "black"
+        },
+        content: "Welcome Back!"
     }
-]
+];
 
-cars.forEach(cars =>{
-    console.log(`the car make is ${cars.Make} the model is ${cars.Model} and the color is ${cars.Color}`)
+
+function changeStyle(arrOfElements, bgColor, textColor) {
+    for (let i = 0; i < arrOfElements.length; i++) {
+        arrOfElements[i].style.backgroundColor = bgColor;
+        arrOfElements[i].style.color = textColor;
     }
-)
-
-
-for (let car of cars){
-    console.log(`the car make is ${car.Make} the model is ${car.Model} and the color is ${car.Color}`)
+    return arrOfElements;
 }
+
+
+
+console.log(changeStyle(elements, "red", "black"));
