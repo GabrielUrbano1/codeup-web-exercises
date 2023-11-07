@@ -1,0 +1,27 @@
+.jumbotron{
+    background-image: url("../Img/pizza.png");
+    height: 346px;
+    position: relative;
+}
+
+.banner{
+    display: block;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+}
+
+.banner h1{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%; /* Increase the width to cover 60% of the parent element */
+    height: 15%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    top: 30%;
+}
+
+#featured{
+
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order pizza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://kit.fontawesome.com/9bf603c1d3.js" crossorigin="anonymous"></script>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Pizza World</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Order Online</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Zipcode" aria-label="Search">
+                    </form>
+                    <button type="button" class="btn btn-outline-primary">Search stores near you!</button>
+
+                </ul>
+                <a class="fa-solid fa-user" href="" style="color: #000000;"></a>
+                <a class="nav-link" href="" style="color: #969696">Sign Up!</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<body>
+<section class="container">
+
+    <div class="jumbotron">
+        <div class="grey-stripe"></div>
+
+        <div class="banner">
+            <h1>Welcome to Pizza World!</h1>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="size-tab" data-bs-toggle="tab" data-bs-target="#size-content"
+                    type="button" role="tab" aria-controls="size-content" aria-selected="true">
+                <span class="badge bg-secondary rounded-pill">1</span> Size and Crust
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cheese-tab" data-bs-toggle="tab" data-bs-target="#cheese-content"
+                    type="button" role="tab" aria-controls="cheese-content" aria-selected="false">
+                <span class="badge bg-secondary rounded-pill">2</span> Cheese and Sauce
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings-content"
+                    type="button" role="tab" aria-controls="toppings-content" aria-selected="false">
+                <span class="badge bg-secondary rounded-pill">3</span> Toppings
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="size-content" role="tabpanel" aria-labelledby="size-tab">
+            <!-- Content for Size and Crust tab -->
+            <div class="card ">
+                <div class="card-header bg-primary text-white">
+                    <h6>Choose Size and Crust</h6>
+                </div>
+                <div class="card-body ">
+                    <ul class="list-group list-group-flush border rounded">
+                        <li class="list-group-item rounded " style="background-color: #F7F7F7">Hand Tossed</li>
+                        <li class="list-group-item rounded ">Garlic seasoned crust with a rich, buttery taste</li>
+                        <li class="list-group-item rounded">
+                            <input type="radio" id="small-tossed" name="size" value="HTML">
+                            <label for="small-tossed">Small (10")</label>
+                        </li>
+                        <li class="list-group-item rounded"><input type="radio" id="medium-tossed" name="size" value="HTML">
+                            <label for="medium-tossed">Meduim (12")</label></li>
+                    </ul>
+                    <br>
+                    <ul class="list-group list-group-flush border rounded">
+                        <li class="list-group-item rounded " style="background-color: #F7F7F7">Crispy Thin</li>
+                        <li class="list-group-item rounded ">Thin enough for optimum crispy to crunchy ratio</li>
+
+                        <li class="list-group-item rounded"><input type="radio" id="medium-thin" name="fav_language" value="HTML">
+                            <label for="medium-thin">Medium (12")</label></li>
+                        <li class="list-group-item rounded">
+                            <input type="radio" id="large-thin" name="fav_language" value="HTML">
+                            <label for="large-thin">Large (14")</label>
+                        </li>
+                    </ul>
+                    <br>
+                    <br></div>
+                <div class="card-footer rounded">
+                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="tab" data-bs-target="#cheese-content">Next
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="cheese-content" role="tabpanel" aria-labelledby="cheese-tab">
+            <!-- Content for Cheese and Sauce tab -->
+            <section class="container">
+                <div class="card ">
+                    <div class="card-header bg-primary text-white">
+                        <h6>Choose Cheese and Sauce</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush border rounded">
+                            <li class="list-group-item rounded bg-light">Cheese</li>
+                            <li class="list-group-item rounded">Garlic seasoned crust with a rich, buttery taste</li>
+                            <li class="list-group-item rounded">
+                                <div class="form-group mb-0">
+                                    <label for="cheeseDropdown">Select Cheese:</label>
+                                    <select class="form-control" id="cheeseDropdown">
+                                        <option value="apple">Light</option>
+                                        <option value="banana">Normal</option>
+                                        <option value="cherry">Extra</option>
+                                        <option value="grape">Double</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul class="list-group list-group-flush border rounded">
+                            <li class="list-group-item rounded bg-light">Sauce</li>
+                            <li class="list-group-item rounded">What Type?</li>
+                            <li class="list-group-item rounded">
+                                <div class="form-group mb-0">
+                                    <label for="sauceDropdown">Select Sauce:</label>
+                                    <select class="form-control" id="sauceDropdown">
+                                        <option value="apple">Light</option>
+                                        <option value="banana">Normal</option>
+                                        <option value="cherry">Extra</option>
+                                        <option value="grape">Double</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="list-group-item rounded">How Much?</li>
+                            <li class="list-group-item rounded">
+                                <div class="form-group mb-0">
+                                    <label for="quantityDropdown">Select Quantity:</label>
+                                    <select class="form-control" id="quantityDropdown">
+                                        <option value="apple">Tomato</option>
+                                        <option value="banana">Marinara</option>
+                                        <option value="cherry">BBQ</option>
+                                        <option value="grape">Alfredo</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="card-footer rounded">
+                        <button type="button" class="btn btn-primary float-end">Next</button>
+                        <button type="button" class="btn btn-primary float-end">Previous</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+        <div class="tab-pane fade" id="toppings-content" role="tabpanel" aria-labelledby="toppings-tab">
+            <!-- Content for Toppings tab -->
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h6>Choose Cheese and Sauce</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush border rounded">
+                        <li class="list-group-item rounded" style="background-color: #F7F7F7">Choose Meats</li>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="mozzarella"> Beef
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="cheddar"> Ham
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="parmesan"> Philly Steak
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="parmesan"> Bacon
+                        </label>
+                        <!-- Add more cheese options as needed -->
+                    </ul>
+                    <br>
+                    <ul class="list-group list-group-flush border rounded">
+                        <li class="list-group-item rounded" style="background-color: #F7F7F7">Choose Non-Meats</li>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="mozzarella"> Green Peppers
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="cheddar"> Mushrooms
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="parmesan"> Onions
+                        </label>
+                        <label class="list-group-item rounded w-100">
+                            <input type="checkbox" name="cheese[]" value="parmesan"> Jalape&#xf1;o Peppers
+                        </label>
+                        <!-- Add more cheese options as needed -->
+                    </ul>
+
+
+                </div>
+                <div class="card-footer rounded">
+                    <button type="button" class="btn btn-primary float-end">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--    this is the primary card-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>
