@@ -7,6 +7,7 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="toggle-btn1">Toggle Header</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -14,7 +15,9 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="toggle-btn2">Toggle list</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="toggle-btn3">Toggle header</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,10 +27,7 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-
-
-
-
+<button id="toggle-btn4">Toggle text</button>
 
 
 <script>
@@ -37,40 +37,92 @@
     // TODO: Uncomment next line and get the main header element by id
     const mainHeader = document.getElementById('main-header');
 
+
+
     // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-    mainHeader.innerHTML = "JavaScript is Cool"
 
 
     // TODO: Uncomment the next line and get the sub header element by id
     const subHeader = document.getElementById("sub-header");
 
+
     // TODO: Set the text color of subHeader to blue
-    subHeader.style.color = "Blue"
+    // subHeader.style.color = "Blue"
 
     // TODO: Uncomment the next line and get all list items
     const listItems = document.getElementsByTagName("li")
 
+
     // TODO: Set text color on every other list item to grey
     // TODO: Set text color of li with dbid = 1 to blue
-    for (let i = 0; i < listItems.length; i++) {
-        if (i % 2 === 0) {
-            listItems[i].style.color = "grey"
-        }
-        if (listItems[i].getAttribute("data-dbid") === '1') {
-            listItems[i].style.color = 'blue'
-        }
-        if(listItems[i].getAttribute("data-dbid") === '3'){
-            listItems[i].style.color = "red"
-        }
-    }
+    // for (let i = 0; i < listItems.length; i++) {
+    //     if (i % 2 === 0) {
+    //         listItems[i].style.color = "grey"
+    //     }
+    //     if (listItems[i].getAttribute("data-dbid") === '1') {
+    //         listItems[i].style.color = 'blue'
+    //     }
+    // }
 
     // Get all elements with class name sub-paragraph
     const subParagraphs = document.getElementsByClassName('sub-paragraph');
+    // document.querySelector("h1").addEventListener("click",() => subParagraphs.style.fontsize = 18)
+    // Change the text in the first sub-paragraph to "Mission Accomplished!"
+    // subParagraphs[0].innerHTML = "Mission Accomplished";
 
-    // Change the text in the first sub paragraph to "Mission Accomplished!"
-    subParagraphs[0].innerHTML = "Mission Accomplished";
+
+    // -----Button One----------------
+    // mainHeader.innerHTML = "JavaScript is Cool"
+    // function buttonOne(){
+    //     mainHeader.innerHTML = "Javascript is cool"
+    // }
+    // mainToggle.addEventListener("click", buttonOne)
+    // const mainToggle = document.getElementById("toggle-btn1")
+    // -------------------------------------
+
+    // button two -----------------
+    // function buttonTwo(){
+    //     subHeader.style.color = "blue"
+    // }
+    // subToggle.addEventListener("click", buttonTwo )
+    // const subToggle = document.getElementById("toggle-btn2")
+    // -------------------------------
+
+    // button Three-------------
+    // function buttonThree(){
+    //     for (let i = 0; i < listItems.length; i++) {
+    //         if (i % 2 === 0) {
+    //             listItems[i].style.color = "grey"
+    //         }
+    //         if (listItems[i].getAttribute("data-dbid") === '1') {
+    //             listItems[i].style.color = 'blue'
+    //         }
+    //     }
+    // }
+    // listToggle.addEventListener("click", buttonThree)
+    // const listToggle = document.getElementById("toggle-btn3")
+    // -------------------------
+
+    // button four ------------
+    // function buttonFour(){
+    //     subParagraphs[0].innerHTML = "Mission Accomplished";
+    // }
+    // subPToggle.addEventListener("click", buttonFour)
+    // const subPToggle = document.getElementById("toggle-btn4")
+    // ----------------
 
 
+
+
+    document.querySelector("#main-header").addEventListener("click", () => mainHeader.style.color = "blue");
+
+    const paragraphs = document.querySelectorAll("p");
+
+    paragraphs.forEach((paragraph) => {
+        paragraph.addEventListener("dblclick", () => {
+            paragraph.style.fontSize = "18px"
+        })
+    })
 
 
 </script>
