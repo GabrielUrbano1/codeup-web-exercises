@@ -233,17 +233,22 @@
     const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
     let currentCodeIndex = 0;
 
+    // Create an audio element
+    const audio = new Audio('The_Legend_Of_Zelda_-_Ocarina_Of_Time_-_Secret_Sound-639840.mp3');
+
     function checkKonamiCode(input) {
         if (input === konamiCode[currentCodeIndex]) {
             currentCodeIndex++;
 
             if (currentCodeIndex === konamiCode.length) {
+                // Play the audio when the Konami Code is successfully entered
+                audio.play();
+
                 alert("You have added 30 lives!");
 
                 currentCodeIndex = 0;
             }
         } else {
-
             currentCodeIndex = 0;
         }
     }
@@ -254,8 +259,7 @@
         console.log()
     });
 
-
-    // Add keydown event listener for keyboard input
+    
     document.addEventListener("keydown", (event) => {
         const key = event.key;
         checkKonamiCode(key);
