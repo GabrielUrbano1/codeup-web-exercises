@@ -38,7 +38,6 @@
     const mainHeader = document.getElementById('main-header');
 
 
-
     // TODO: Set inner html of mainHeader to "JavaScript is Cool"
 
 
@@ -50,7 +49,7 @@
     // subHeader.style.color = "Blue"
 
     // TODO: Uncomment the next line and get all list items
-    const listItems = document.getElementsByTagName("li")
+    // const listItems = document.getElementsByTagName("li")
 
 
     // TODO: Set text color on every other list item to grey
@@ -112,8 +111,7 @@
     // ----------------
 
 
-
-
+    // Mouse events exercise-------------
     document.querySelector("#main-header").addEventListener("click", () => mainHeader.style.color = "blue");
 
     const paragraphs = document.querySelectorAll("p");
@@ -124,6 +122,14 @@
         })
     })
 
+    const listItems = document.querySelectorAll("li")
+
+    listItems.forEach((item) => {
+        item.addEventListener("mouseenter", ()=>{
+            item.style.color = "red"
+        })
+    })
+    // -------------------------------------
 
 </script>
 </body>

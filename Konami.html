@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<style>
+    .controller-main {
+        width: 500px;
+        height: 200px;
+        background-color: #CCCBD1;
+        border-radius: 5px;
+        position: absolute;
+        left: 38%;
+        top: 25%;
+    }
+
+    .controller-secondary {
+        height: 160px;
+        width: 460px;
+        background-color: #2E2E2E;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        border-radius: 5px;
+    }
+
+    .grey-box {
+        width: 150px;
+        height: 20px;
+        background-color: #92928E;
+    }
+
+    .half-grey-box {
+        width: 150px;
+        height: 20px;
+        background-color: #92928E;
+        position: absolute;
+        bottom: 0;
+        right: 155px;
+        border-radius: 5px 5px 0 0;
+
+    }
+
+    .grey-box:nth-child(1) {
+        position: absolute;
+        right: 155px;
+        border-radius: 0 0 5px 5px;
+
+
+    }
+
+    .grey-box:nth-child(2) {
+        position: absolute;
+        right: 155px;
+        top: 30px;
+        border-radius: 5px;
+
+    }
+
+    .grey-box:nth-child(3) {
+        position: absolute;
+        right: 155px;
+        top: 60px;
+        border-radius: 5px;
+    }
+
+    .start-box {
+
+    }
+
+    #paragraph {
+        position: absolute;
+        top: -15px;
+        left: 15px;
+        color: #E23E3B;
+    }
+
+    #nintendo {
+        color: #E23E3B;
+        position: absolute;
+        right: 28px;
+        z-index: 1;
+    }
+
+    .circle-button-b {
+        width: 45px; /* Adjust the width and height as needed */
+        height: 45px;
+        border-radius: 50%; /* Makes it a circle */
+        background-color: #E23E3B; /* Change the background color to your desired color */
+        cursor: pointer; /* Add a pointer cursor on hover for interaction */
+        position: absolute;
+        right: 80px;
+        bottom: 25px;
+        box-shadow: -5px -5px 5px black;
+    }
+
+    .circle-button-a {
+        width: 45px; /* Adjust the width and height as needed */
+        height: 45px;
+        border-radius: 50%; /* Makes it a circle */
+        background-color: #E23E3B; /* Change the background color to your desired color */
+        position: absolute;
+        right: 20px;
+        bottom: 25px;
+        box-shadow: -5px -5px 5px black;
+    }
+
+    #B-button-icon {
+        position: absolute;
+        bottom: -13px;
+        right: 80px;
+        color: #E23E3B;
+    }
+
+    #A-button-icon {
+        position: absolute;
+        bottom: -13px;
+        right: 20px;
+        color: #E23E3B;
+    }
+
+    .start-box {
+        background-color: #D8D7DD;
+        width: 150px;
+        height: 40px;
+        position: absolute;
+        bottom: 30px;
+        right: 155px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .select-button {
+        height: 20px;
+        background-color: black;
+        width: 50px;
+        position: absolute;
+        top: 10PX;
+        left: 13px;
+    }
+
+    .start-button {
+        height: 20px;
+        background-color: black;
+        width: 50px;
+        position: absolute;
+        top: 10PX;
+        right: 13px;
+    }
+
+    .up-button {
+        height: 40px;
+        background-color: black;
+        width: 30px;
+        position: absolute;
+        bottom: 75PX;
+        left: 60px;
+    }
+
+    .down-button {
+        height: 40px;
+        background-color: black;
+        width: 30px;
+        position: absolute;
+        bottom: 15PX;
+        left: 60px;
+    }
+
+    .left-button {
+        height: 30px;
+        background-color: black;
+        width: 40px;
+        position: absolute;
+        bottom: 50PX;
+        left: 25px;
+    }
+
+    .right-button {
+        height: 30px;
+        background-color: black;
+        width: 40px;
+        position: absolute;
+        bottom: 50PX;
+        left: 85px;
+    }
+
+    .circle-d-pad {
+        height: 40px;
+        width: 40px;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 45px;
+        left: 55px;
+    }
+
+</style>
+<body>
+<h1 style="text-align: center">Konami Code</h1>
+<div class="controller-main">
+    <div class="controller-secondary">
+
+        <div class="grey-box"></div>
+
+        <div class="grey-box"></div>
+        <div class="grey-box">
+            <P id="paragraph">SELECT &nbsp;&nbsp;&nbsp;START</P>
+        </div>
+        <div class="half-grey-box"></div>
+        <h2 id="nintendo">Nintendo</h2>
+        <button class="up-button" id="up"></button>
+        <button class="down-button" id="down"></button>
+        <button class="left-button" id="left"></button>
+        <button class="right-button" id="right"></button>
+        <button class="circle-button-b" id="b"></button>
+
+
+        <p id="B-button-icon">B</p>
+        <div class="circle-d-pad"></div>
+
+        <button class="circle-button-a" id="a"></button>
+        <p id="A-button-icon">A</p>
+        <div class="start-box">
+            <button class="select-button" id="NULL"></button>
+            <button class="start-button" id="enter"></button>
+        </div>
+    </div>
+</div>
+<script>
+    "use strict";
+
+    const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+    let currentCodeIndex = 0;
+
+    function checkKonamiCode(input) {
+        if (input === konamiCode[currentCodeIndex]) {
+            currentCodeIndex++;
+
+            if (currentCodeIndex === konamiCode.length) {
+                alert("You have added 30 lives!");
+
+                currentCodeIndex = 0;
+            }
+        } else {
+
+            currentCodeIndex = 0;
+        }
+    }
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener("click", () => checkKonamiCode(button.id.toLowerCase()));
+        console.log()
+    });
+
+
+    // Add keydown event listener for keyboard input
+    document.addEventListener("keydown", (event) => {
+        const key = event.key;
+        checkKonamiCode(key);
+        console.log()
+    });
+</script>
+</body>
+</html>
