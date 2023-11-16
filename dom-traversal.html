@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="parent">
+        <div class="box1">
+
+        </div>
+    </div>
+</div>
+<h1>Parks List</h1>
+<div id="national-parks-div">
+    <h3 id="national-parks-heading">National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+</div>
+<div id="state-parks-div">
+    <h3 id="state-parks-heading">State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+</div>
+</body>
+<script>
+    const box1 = document.querySelector("#state-parks-texas");
+    // console.log(box1)
+    const parent = box1.parentElement;
+    console.log(parent)
+    // const grandParent = box1.parentElement.parentElement;
+    // console.log(grandParent)
+</script>
+</html>

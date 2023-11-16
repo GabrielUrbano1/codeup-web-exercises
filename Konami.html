@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Konami Code</title>
 </head>
@@ -89,8 +89,8 @@
         background-color: #E23E3B; /* Change the background color to your desired color */
         cursor: pointer; /* Add a pointer cursor on hover for interaction */
         position: absolute;
-        right: 80px;
-        bottom: 25px;
+        right: 3px;
+        bottom: 3px;
         box-shadow: -5px -5px 5px black;
     }
 
@@ -100,8 +100,8 @@
         border-radius: 50%; /* Makes it a circle */
         background-color: #E23E3B; /* Change the background color to your desired color */
         position: absolute;
-        right: 20px;
-        bottom: 25px;
+        right: 3px;
+        bottom: 3px;
         box-shadow: -5px -5px 5px black;
     }
 
@@ -115,7 +115,7 @@
     #A-button-icon {
         position: absolute;
         bottom: -13px;
-        right: 20px;
+        right: 10px;
         color: #E23E3B;
     }
 
@@ -194,6 +194,23 @@
         bottom: 45px;
         left: 55px;
     }
+    .button-box-One{
+        height: 55px;
+        width: 55px;
+        background-color: #92928E;
+        position: absolute;
+        right: 80px;
+        bottom: 25px;
+
+    }    .button-box-Two{
+        height: 55px;
+        width: 55px;
+        background-color: #92928E;
+        position: absolute;
+        right: 10px;
+        bottom: 25px;
+
+    }
 
 </style>
 <body>
@@ -213,13 +230,16 @@
         <button class="down-button" id="down"></button>
         <button class="left-button" id="left"></button>
         <button class="right-button" id="right"></button>
-        <button class="circle-button-b" id="b"></button>
-
+        <div class="button-box-One">
+            <button class="circle-button-b" id="b"></button>
+        </div>
 
         <p id="B-button-icon">B</p>
-        <div class="circle-d-pad"></div>
 
+        <div class="circle-d-pad"></div>
+<div class="button-box-Two">
         <button class="circle-button-a" id="a"></button>
+    </div>
         <p id="A-button-icon">A</p>
         <div class="start-box">
             <button class="select-button" id="NULL"></button>
@@ -241,7 +261,6 @@
             currentCodeIndex++;
 
             if (currentCodeIndex === konamiCode.length) {
-                // Play the audio when the Konami Code is successfully entered
                 audio.play();
 
                 alert("You have added 30 lives!");
@@ -259,7 +278,7 @@
         console.log()
     });
 
-    
+
     document.addEventListener("keydown", (event) => {
         const key = event.key;
         checkKonamiCode(key);
