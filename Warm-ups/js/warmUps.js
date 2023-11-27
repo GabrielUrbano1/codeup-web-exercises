@@ -190,17 +190,76 @@
 
 // console.log(changeStyle(elements, "red", "black"));
 
-function fizzBuzz(n) {
-    for (let i = 1; i <= n; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            console.log("FizzBuzz");
-        } else if (i % 3 === 0) {
-            console.log("Fizz");
-        } else if (i % 5 === 0) {
-            console.log("Buzz");
-        } else {
-            console.log(i);
-        }
+// function fizzBuzz(n) {
+//     for (let i = 1; i <= n; i++) {
+//         if (i % 3 === 0 && i % 5 === 0) {
+//             console.log("FizzBuzz");
+//         } else if (i % 3 === 0) {
+//             console.log("Fizz");
+//         } else if (i % 5 === 0) {
+//             console.log("Buzz");
+//         } else {
+//             console.log(i);
+//         }
+//     }
+// }
+// console.log(fizzBuzz(100))
+
+const inputBox = document.getElementById('input-box');
+const listContainer = document.getElementById('list-container');
+
+function addTask() {
+    if (inputBox.value === '') {
+        alert('Please enter a task');
     }
+    else {
+        let li = document.createElement('li');
+        li.innerHTML = inputBox.value;
+        listContainer.appendChild(li);
+        let span = document.createElement('span');
+        span.innerHTML = '\u00d7'
+        li.appendChild(span);
+    }
+    inputBox.value = '';
+    saveData();
 }
-console.log(fizzBuzz(100))
+
+listContainer.addEventListener('click', function(e) {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('checked');
+        saveData();
+    }
+    else if (e.target.tagName === 'SPAN') {
+        e.target.parentElement.remove();
+        saveData();
+    }
+},false);
+
+function saveData(){
+    localStorage.setItem('data', listContainer.innerHTML);
+}
+function showTasks() {
+    listContainer.innerHTML = localStorage.getItem('data');
+}
+showTasks();
+
+function updateFontColor() {
+    // Get all elements containing text
+    const textElements = document.querySelectorAll('*:not(script):not(style):not(link):not(meta)'); // Exclude certain elements like scripts, styles, links, and meta tags
+
+    // Loop through the text elements and update font color
+    textElements.forEach(element => {
+        element.style.color = '#c50c0c';
+    });
+}
+
+// Call the function to update font color
+updateFontColor();
+
+// Select all headings and titles you want to style with Dancing Script
+const headingsAndTitles = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .title-class, .other-title-class');
+
+// Apply the "Dancing Script" font to the selected elements
+headingsAndTitles.forEach(element => {
+    element.style.fontFamily = 'Dancing Script, cursive';
+});

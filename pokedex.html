@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Info</title>
+</head>
+<body>
+<h1>Pokémon Information</h1>
+<label for="pokemonInput">Enter Pokémon Name or ID:</label>
+<input type="text" id="pokemonInput">
+<button id="fetchButton">Fetch Pokémon</button>
+
+<div id="pokemonInfo">
+    <!-- Pokémon stats and abilities will be displayed here -->
+</div>
+
+<script>
+    document.getElementById('fetchButton').addEventListener('click', function () {
+        const userPrompt = document.getElementById('pokemonInput').value;
+        fetch(`https://pokeapi.co/api/v2/pokemon/${userPrompt}`)
+            .then(response => {
+                if (!response.ok) {
+                    alert("Please enter a correct name or ID");
+                    throw new Error("Invalid response");
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                const pokemonInfo = document.getElementById('pokemonInfo');
+                pokemonInfo.innerHTML = ''; // Clear previous data
+
+                const statsList = document.createElement('ul');
+                const abilitiesList = document.createElement('ul');
+                const weightsList = document.createElement('ul');
+                const heightList = document.createElement('ul')
+
+                data.stats.forEach(stat => {
+                    const statItem = document.createElement('li');
+                    statItem.textContent = `${stat.stat.name}: ${stat.base_stat}`;
+                    // statsList.appendChild(statItem);
+                });
+
+                data.abilities.forEach(ability => {
+                    const abilityItem = document.createElement('li');
+                    abilityItem.textContent = ability.ability.name;
+                    // abilitiesList.appendChild(abilityItem);
+                });
+
+
+                const weightsItem =document.createElement("li")
+                weightsItem.textContent = `Weight: ${(data.weight / 10).toFixed(2)} Kg`;
+                weightsList.appendChild(weightsItem)
+
+
+                const heightItem =document.createElement("li")
+                heightItem.textContent = `Height: ${(data.height / 3).toFixed(2)}'`;
+                heightList.appendChild(heightItem)
+
+                const frontDefaultImage = document.createElement('img');
+                frontDefaultImage.src = data.sprites.front_shiny || data.sprites.front_default;
+                // frontDefaultImage.src =
+                frontDefaultImage.style.height = "20vw"
+
+                pokemonInfo.appendChild(frontDefaultImage);
+                pokemonInfo.appendChild(statsList);
+                pokemonInfo.appendChild(abilitiesList);
+                pokemonInfo.appendChild(weightsItem);
+                pokemonInfo.appendChild(heightItem)
+            })
+            .catch(error => {
+                console.error("Error: " + error);
+            });
+    });
+</script>
+</body>
+</html>
