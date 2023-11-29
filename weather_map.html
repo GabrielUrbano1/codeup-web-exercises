@@ -1,10 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Weather Map</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add some CSS styles to the map container */
+        #map {
+            width: 100%;
+            height: 700px; /* Adjust the height as needed */
+        }
+    </style>
 </head>
 <body>
+<h1>Weather Map</h1>
+<form id="weather-form">
+    <label for="cityName">City Name:</label>
+    <input type="text" id="cityName" name="cityName" required>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
+<div id="forecast">
+    <!-- The 5-day weather forecast will be displayed here -->
+    <h2>5-Day Weather Forecast:</h2>
+    <div class="row justify-content-center" id="forecast-cards">
+        <!-- Cards will be added here -->
+    </div>
+</div>
+<br>
+
+<div id="map"></div>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+<script src="JS/keys.js"></script>
+<script>
+    mapboxgl.accessToken = `${MAP_BOX_API_KEY}`;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        zoom: 10, // starting zoom
+        center: [-98.4916, 29.4252] // [lng, lat]
+    });
+
+    // Function to convert Kelvin to Fahrenheit
+    function kelvinToFahrenheit(kelvin) {
+        return ((kelvin - 273.15) * 9 / 5 + 32).toFixed(0);
+    }
+
+    // Function to convert meters per second to miles per hour
+    function mpsToMph(mps) {
+        return (mps * 2.23694).toFixed(2);
+    }
+
+    // Function to fetch and display weather data
+    function fetchAndDisplayWeatherData() {
+        const cityName = document.getElementById('cityName').value;
+        const limit = 5; // Replace with the desired limit
+
+        const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${OPEN_WEATHER_API_KEY}`;
+
+        fetch(geoCodeUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Handle the JSON response data here
+                console.log(data);
+                const firstEntry = data[0];
+                const latitude = firstEntry.lat;
+                const longitude = firstEntry.lon;
+                const resultDiv = document.getElementById('weather-result');
+                // resultDiv.innerHTML = `<p>Latitude: ${latitude}</p><p>Longitude: ${longitude}</p>`;
+
+                // Update the map's center based on the latitude and longitude
+                map.setCenter([longitude, latitude]);
+
+                // Fetch 5-day weather forecast
+                const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_API_KEY}`;
+                return fetch(forecastUrl);
+            })
+            .then((forecastResponse) => {
+                if (!forecastResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${forecastResponse.status}`);
+                }
+                return forecastResponse.json();
+            })
+            .then((forecastData) => {
+                // Handle the 5-day weather forecast data here
+                console.log(forecastData);
+
+                // Group forecast data by date
+                const groupedData = {};
+                forecastData.list.forEach((forecastItem) => {
+                    const date = forecastItem.dt_txt.split(' ')[0];
+                    if (!groupedData[date]) {
+                        groupedData[date] = [];
+                    }
+                    groupedData[date].push(forecastItem);
+                });
+
+                // Display one entry per day
+                const forecastCards = document.getElementById('forecast-cards');
+                forecastCards.innerHTML = ''; // Clear previous content
+
+                for (const date in groupedData) {
+                    if (groupedData.hasOwnProperty(date)) {
+                        const forecastItems = groupedData[date];
+                        const dateText = forecastItems[0].dt_txt.split(' ')[0];
+
+                        // Create a Bootstrap card for each day's data
+                        const card = document.createElement('div');
+                        card.className = 'col-md-2 m-0'; // Specify the number of column
+                        card.innerHTML = `
+                            <div class="card text-center" style="background-color: rgba(146, 146, 142, 0.5);">
+                            <div class="card-body" style="max-height: 200px; overflow: hidden; text-overflow: ellipsis;">
+                            <h5 class="card-title">Date: ${dateText}</h5><hr>
+
+                                </div><ul>
+                                            <div class="text-sm-start">
+                                            <strong>Temperature:</strong> ${kelvinToFahrenheit(forecastItems[0].main.temp)} F<br><hr>
+                                            <strong>Wind Speed:</strong> ${mpsToMph(forecastItems[0].wind.speed)} mph<br><hr>
+                                            <strong>Humidity:</strong> ${forecastItems[0].main.humidity}%<br><hr>
+                                            <strong>Description:</strong> ${forecastItems[0].weather[0].description}<br><hr>
+                                            <strong>Pressure:</strong> ${forecastItems[0].main.pressure} hPa<br><br>
+                                    </ul>
+
+                            </div>
+                        `;
+                        forecastCards.appendChild(card);
+                    }
+                }
+            })
+            .catch((error) => {
+                // Handle any errors that occurred during the fetch requests
+                console.error('Fetch error:', error);
+            });
+    }
+
+    // Attach the event listener to the form submit button
+    document.getElementById('weather-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        fetchAndDisplayWeatherData(); // Call the function to fetch and display weather data
+    });
+</script>
+<!-- Include Bootstrap JS (jQuery and Popper.js are required dependencies) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
