@@ -187,7 +187,6 @@
 // }
 
 
-
 // console.log(changeStyle(elements, "red", "black"));
 
 // function fizzBuzz(n) {
@@ -211,8 +210,7 @@ const listContainer = document.getElementById('list-container');
 function addTask() {
     if (inputBox.value === '') {
         alert('Please enter a task');
-    }
-    else {
+    } else {
         let li = document.createElement('li');
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
@@ -224,23 +222,24 @@ function addTask() {
     saveData();
 }
 
-listContainer.addEventListener('click', function(e) {
+listContainer.addEventListener('click', function (e) {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
         saveData();
-    }
-    else if (e.target.tagName === 'SPAN') {
+    } else if (e.target.tagName === 'SPAN') {
         e.target.parentElement.remove();
         saveData();
     }
-},false);
+}, false);
 
-function saveData(){
+function saveData() {
     localStorage.setItem('data', listContainer.innerHTML);
 }
+
 function showTasks() {
     listContainer.innerHTML = localStorage.getItem('data');
 }
+
 showTasks();
 
 function updateFontColor() {
@@ -263,3 +262,19 @@ const headingsAndTitles = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .ti
 headingsAndTitles.forEach(element => {
     element.style.fontFamily = 'Dancing Script, cursive';
 });
+
+
+//warm up to display content form json files
+fetch("data/to-do.json")
+    .then(response => response.json())
+    .then(data => {
+        const jsonClass = document.querySelector(".json")
+        data.forEach(item => {
+            const displayContent = document.createElement("p")
+            displayContent.innerHTML = `
+    <h1>${item.task}</h1>
+    <p>${item.content}</p>   
+    <p>${item.date}</p>`
+            jsonClass.appendChild(displayContent)
+        })
+    })

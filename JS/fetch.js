@@ -15,9 +15,6 @@ function getLastCommitDate(username) {
         }
     })
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`GitHub API request failed with status: ${response.status}`);
-            }
             return response.json();
         })
         .then(events => {
@@ -26,8 +23,6 @@ function getLastCommitDate(username) {
             if (lastCommitEvent) {
                 const lastCommitDate = new Date(lastCommitEvent.created_at);
                 return lastCommitDate.toDateString();
-            } else {
-                throw new Error(`No recent commit events found for user ${username}`);
             }
         });
 }
