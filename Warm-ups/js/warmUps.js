@@ -251,6 +251,7 @@ function updateFontColor() {
         element.style.color = '#c50c0c';
     });
 }
+mapboxgl.accessToken = MAP_BOX_API_KEY;
 
 // Call the function to update font color
 updateFontColor();

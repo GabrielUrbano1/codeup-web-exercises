@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    #map {
+    /* the width and height may be set to any size */
+    width: 50%;
+    height: 700px;
+    }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+<script src="JS/keys.js"></script>
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = MAP_BOX_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        zoom: 10,
+        center: [-96.74640775941502, 33.02017252444113]
+    });
+
+    const restaurants = [
+        {
+            name: "Kitaro Sushi Plano",
+            location: [-96.74640775941502, 33.02017252444113],
+            description: "Delicious sushi and Japanese cuisine."
+        },
+        {
+            name: "Mama Mia Italian Restaurant",
+            location: [-96.734849, 33.048946],
+            description: "Authentic Italian dishes and pizza."
+        },
+        {
+            name: "Taco Town",
+            location: [-96.758938, 33.023156],
+            description: "Tasty tacos and Mexican street food."
+        }
+    ];
+
+    restaurants.forEach(restaurant => {
+        const marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.location)
+            .addTo(map);
+
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        popup.setHTML(`<h3>${restaurant.name}</h3><p>${restaurant.description}</p>`);
+
+        marker.setPopup(popup);
+
+        marker.on('click', () => {
+            popup.addTo(map);
+        });
+    });
+
+</script>
+</body>
+</html>
