@@ -1,0 +1,9 @@
+#map {
+    width: 95%;
+    height: 700px;
+    margin: auto;
+}
+.card:hover{
+transform: scale(1.05);
+    transition: 0.3s;
+}

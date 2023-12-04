@@ -32,7 +32,14 @@
 //     }
 //     return `The fibinacci numbers are ${fib}`
 // }
-//
+//var fibGenerator = function*() {
+//     let a = 0, b = 1;
+//     while(true) {
+//         yield a;
+//         b = a + b;
+//         a = b - a;
+//     }
+// };
 //
 // console.log(fibinacci(10))
 //
@@ -105,8 +112,7 @@
 
 
 /*
-WHAT IS RECURSION
-recursion is a problem-solving technique where the solution depends on solutions to smaller instances of the same problem
+WHAT IS RECURSION is a problem-solving technique where the solution depends on solutions to smaller instances of the same problem
 recursion is a great technique to simplify your solution
 
 EVERY SOLUTION HAS A BASE CASE
@@ -117,16 +123,16 @@ NOT MOST STRAIGHT FORWARD TO UNDERSTAND
 
 
 // //RECURSIVE FIBINACCI SEQUENCE
-// function recursiveFib(n){
-//     if (n < 2){
-//         return n
-//     }
-// return recursiveFib(n-1)+recursiveFib(n-2)
-//     }
-//
-//     console.log(recursiveFib(0))
-//     console.log(recursiveFib(1))
-//     console.log(recursiveFib(50))
+function recursiveFib(n){
+    if (n < 2){
+        return n
+    }
+return recursiveFib(n-1)+recursiveFib(n-2)
+    }
+
+    console.log(recursiveFib(0))
+    console.log(recursiveFib(1))
+    console.log(recursiveFib(20))
 
 
 // // RECURSIVE FACTORIAL OF A NUMBER
@@ -242,24 +248,24 @@ NOT MOST STRAIGHT FORWARD TO UNDERSTAND
 // console.log(sortedArr); // This will print the sorted array
 
 // INSERTION SORT
-// function insertionSort(arr) {
-//     for (let i = 1; i < arr.length; i++) {//creates a loop to traverse the array
-//         let numberToInsert = arr[i];//stores element to sort/insert
-//         let j = i - 1;//refers to index of sorted element
-//
-//         while (j >= 0 && arr[j] > numberToInsert) {//condition to see if number is greater than number to insert
-//             arr[j + 1] = arr[j];//insures elements greater than elements to insert is greater
-//             j = j-1
-//         }
-//
-//         arr[j + 1] = numberToInsert;//inserts number to right if it is greater.
-//     }
-//     return arr; // Return the sorted array
-// }
+function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {//creates a loop to traverse the array
+        let numberToInsert = arr[i];//stores element to sort/insert
+        let j = i - 1;//refers to index of sorted element
+
+        while (j >= 0 && arr[j] > numberToInsert) {//condition to see if number is greater than number to insert
+            arr[j + 1] = arr[j];//insures elements greater than elements to insert is greater
+            j = j-1
+        }
+
+        arr[j + 1] = numberToInsert;//inserts number to right if it is greater.
+    }
+    return arr; // Return the sorted array
+}
 // Example usage:
 const arr = [-5, 3, 1, 4, 2];
-// const sortedArr = insertionSort(arr);
-// console.log(sortedArr); // This will print the sorted array
+const sortedArr = insertionSort(arr);
+console.log(sortedArr); // This will print the sorted array
 
 
 // QUICK SORT
@@ -626,8 +632,8 @@ function plusMinus(arr) {
 }
 
 // Sample input
-const arrr = [-4, 3, -9, 0, 4, 1];
-plusMinus(arrr);
+// const arrr = [-4, 3, -9, 0, 4, 1];
+// plusMinus(arrr);
 
 
 function staircase(n) {

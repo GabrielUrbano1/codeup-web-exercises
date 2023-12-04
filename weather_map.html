@@ -3,19 +3,12 @@
     <title>Weather Map</title>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
-    <!-- Include Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Add some CSS styles to the map container */
-        #map {
-            width: 95%;
-            height: 700px;
-            margin: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/weather_app.css">
 </head>
 <body>
-<h1 style="background-color: #007BFF; color: white; text-align: center">Weather App</h1>
+<h1 style="background-color: #007BFF; color: white; text-align: center">
+    Weather App</h1>
 <form id="weather-form" style="text-align: center">
     <label for="cityName">City Name:</label>
     <input type="text" id="cityName" name="cityName" value="Aubrey" required>
@@ -33,145 +26,9 @@
 
 <div id="map"></div>
 
-
+</body>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
 <script src="JS/keys.js"></script>
-<script>
-    mapboxgl.accessToken = `${MAP_BOX_API_KEY}`;
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        zoom: 10, // starting zoom
-        center: [-96.96264463946069, 33.23351640203257] // [lng, lat]
-    });
-
-    const marker = new mapboxgl.Marker();
-
-    // Function to convert Kelvin to Fahrenheit
-    function kelvinToFahrenheit(kelvin) {
-        return ((kelvin - 273.15) * 9 / 5 + 32).toFixed(0);
-    }
-
-    // Function to convert meters per second to miles per hour
-    function mpsToMph(mps) {
-        return (mps * 2.23694).toFixed(0);
-    }
-
-    // Function to fetch and display weather data by coordinates
-    function fetchAndDisplayWeatherData(lat, lng) {
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${OPEN_WEATHER_API_KEY}`;
-        fetch(forecastUrl)
-            .then((forecastResponse) => {
-                if (!forecastResponse.ok) {
-                    throw new Error(`HTTP error! Status: ${forecastResponse.status}`);
-                }
-                return forecastResponse.json();
-            })
-            .then((forecastData) => {
-                console.log(forecastData);
-
-                // Get the current date
-                const currentDate = new Date();
-                currentDate.setHours(0, 0, 0, 0); // Set time to midnight
-
-                // Filter forecast data to include only the next 5 days
-                const forecastItems = forecastData.list.filter((item) => {
-                    const itemDate = new Date(item.dt_txt);
-                    return itemDate >= currentDate && itemDate < new Date(currentDate.getTime() + 5 * 24 * 60 * 60 * 1000);
-                });
-
-                const groupedData = {};
-                forecastItems.forEach((forecastItem) => {
-                    const date = forecastItem.dt_txt.split(' ')[0];
-                    if (!groupedData[date]) {
-                        groupedData[date] = [];
-                    }
-                    groupedData[date].push(forecastItem);
-                });
-
-                const forecastCards = document.getElementById('forecast-cards');
-                forecastCards.innerHTML = '';
-                for (const date in groupedData) {
-                    if (groupedData.hasOwnProperty(date)) {
-                        const forecastItems = groupedData[date];
-                        const dateText = forecastItems[0].dt_txt.split(' ')[0];
-                        const card = document.createElement('div');
-                        card.className = 'col-md-2 m-0';
-                        card.innerHTML = `
-                        <div class="card text-center" style="background-color: rgba(146, 146, 142, 0.3);">
-                            <div class="card-body" style="max-height: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                <h5 class="card-title">Date: </h5>
-                                <h5 class="card-title">${dateText}</h5><hr>
-                                <ul>
-                                    </div>
-                                    <div class="text-sm-start" style="white-space: nowrap;">
-                                        <strong>Description:</strong> ${forecastItems[0].weather[0].description}
-                                        <img src="http://openweathermap.org/img/w/${forecastItems[0].weather[0].icon}.png" alt="Weather Icon">
-                                        <br><hr>
-                                        <strong>Temperature:</strong> ${kelvinToFahrenheit(forecastItems[0].main.temp)} F<br><hr>
-                                        <strong>Wind Speed:</strong> ${mpsToMph(forecastItems[0].wind.speed)} mph<br><hr>
-                                        <strong>Humidity:</strong> ${forecastItems[0].main.humidity}%<br><hr>
-                                        <strong>Pressure:</strong> ${forecastItems[0].main.pressure} hPa<br><br>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                    `;
-
-                        forecastCards.appendChild(card);
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('Fetch error:', error);
-            });
-    }
-
-    // Function to handle form submission
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const cityName = document.getElementById('cityName').value;
-        const limit = 5;
-
-        const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${OPEN_WEATHER_API_KEY}`;
-
-        fetch(geoCodeUrl)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                const firstEntry = data[0];
-                const latitude = firstEntry.lat;
-                const longitude = firstEntry.lon;
-                map.setCenter([longitude, latitude]);
-                marker.setLngLat([longitude, latitude]).addTo(map);
-                fetchAndDisplayWeatherData(latitude, longitude);
-            })
-            .catch((error) => {
-                console.error('Fetch error:', error);
-            });
-    }
-
-    // Event listener for form submission
-    document.getElementById('weather-form').addEventListener('submit', handleFormSubmit);
-
-    // Event listener for map click
-    map.on('click', (e) => {
-        const coordinates = e.lngLat;
-        marker.setLngLat(coordinates).addTo(map);
-        fetchAndDisplayWeatherData(coordinates.lat, coordinates.lng);
-    });
-
-    // Load weather data for the default location (Aubrey, TX 76227) on page load
-    const defaultLatitude = 33.23351640203257;
-    const defaultLongitude = -96.96264463946069;
-    fetchAndDisplayWeatherData(defaultLatitude, defaultLongitude);
-
-
+<script src="JS/weather_app.js">
 </script>
-<!-- Include Bootstrap JS (jQuery and Popper.js are required dependencies) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
