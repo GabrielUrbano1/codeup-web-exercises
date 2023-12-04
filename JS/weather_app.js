@@ -67,26 +67,34 @@ function fetchAndDisplayWeatherData(lat, lng) {
                     const dateText = forecastItems[0].dt_txt.split(' ')[0];
                     const card = document.createElement('div');
                     card.className = 'col-md-2 m-0';
+                    // language=html
                     card.innerHTML = `
-                    <div class="card text-center" style="background-color: rgba(146, 146, 142, 0.3);">
-                        <div class="card-body" style="max-height: 200px; overflow: hidden; text-overflow: ellipsis;">
-                            <h5 class="card-title">Date: </h5>
-                            <h5 class="card-title">${dateText}</h5><hr>
-                            <ul>
-                                </div>
-                                <div class="text-sm-start" style="white-space: nowrap;">
-                                    <strong>Description:</strong> ${forecastItems[0].weather[0].description}
-                                    <img src="http://openweathermap.org/img/w/${forecastItems[0].weather[0].icon}.png" alt="Weather Icon">
-                                    <br><hr>
-                                    <strong>Temperature:</strong> ${kelvinToFahrenheit(forecastItems[0].main.temp)} F<br><hr>
-                                    <strong>Wind Speed:</strong> ${mpsToMph(forecastItems[0].wind.speed)} mph<br><hr>
-                                    <strong>Humidity:</strong> ${forecastItems[0].main.humidity}%<br><hr>
-                                    <strong>Pressure:</strong> ${forecastItems[0].main.pressure} hPa<br><br>
-                                </div>
+                        <div class="card text-center" style="background-color: rgba(146, 146, 142, 0.3);">
+                            <div class="card-body"
+                                 style="max-height: 200px; overflow: hidden; text-overflow: ellipsis;">
+                                <h5 class="card-title">Date: </h5>
+                                <h5 class="card-title">${dateText}</h5>
+                                <hr>
+                                <ul>
+                            </div>
+                            <div class="text-sm-start" style="white-space: nowrap;">
+                                <strong>Description:</strong> ${forecastItems[0].weather[0].description}
+                                <img src="http://openweathermap.org/img/w/${forecastItems[0].weather[0].icon}.png"
+                                     alt="Weather Icon">
+                                <br>
+                                <hr>
+                                <strong>Temperature:</strong> ${kelvinToFahrenheit(forecastItems[0].main.temp)} F<br>
+                                <hr>
+                                <strong>Wind Speed:</strong> ${mpsToMph(forecastItems[0].wind.speed)} mph<br>
+                                <hr>
+                                <strong>Humidity:</strong> ${forecastItems[0].main.humidity}%<br>
+                                <hr>
+                                <strong>Pressure:</strong> ${forecastItems[0].main.pressure} hPa<br><br>
+                            </div>
                             </ul>
                         </div>
-                    </div>
-                `;
+                        </div>
+                    `;
                     forecastCards.appendChild(card);
                 }
             }
