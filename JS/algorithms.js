@@ -123,16 +123,16 @@ NOT MOST STRAIGHT FORWARD TO UNDERSTAND
 
 
 // //RECURSIVE FIBINACCI SEQUENCE
-function recursiveFib(n){
-    if (n < 2){
-        return n
-    }
-return recursiveFib(n-1)+recursiveFib(n-2)
-    }
-
-    console.log(recursiveFib(0))
-    console.log(recursiveFib(1))
-    console.log(recursiveFib(20))
+// function recursiveFib(n) {
+//     if (n < 2) {
+//         return n
+//     }
+//     return recursiveFib(n - 1) + recursiveFib(n - 2)
+// }
+//
+// console.log(recursiveFib(0))
+// console.log(recursiveFib(1))
+// console.log(recursiveFib(20))
 
 
 // // RECURSIVE FACTORIAL OF A NUMBER
@@ -248,24 +248,25 @@ return recursiveFib(n-1)+recursiveFib(n-2)
 // console.log(sortedArr); // This will print the sorted array
 
 // INSERTION SORT
-function insertionSort(arr) {
-    for (let i = 1; i < arr.length; i++) {//creates a loop to traverse the array
-        let numberToInsert = arr[i];//stores element to sort/insert
-        let j = i - 1;//refers to index of sorted element
+// function insertionSort(arr) {
+//     for (let i = 1; i < arr.length; i++) {//creates a loop to traverse the array
+//         let numberToInsert = arr[i];//stores element to sort/insert
+//         let j = i - 1;//refers to index of sorted element
+//
+//         while (j >= 0 && arr[j] > numberToInsert) {//condition to see if number is greater than number to insert
+//             arr[j + 1] = arr[j];//insures elements greater than elements to insert is greater
+//             j = j - 1
+//         }
+//
+//         arr[j + 1] = numberToInsert;//inserts number to right if it is greater.
+//     }
+//     return arr; // Return the sorted array
+// }
 
-        while (j >= 0 && arr[j] > numberToInsert) {//condition to see if number is greater than number to insert
-            arr[j + 1] = arr[j];//insures elements greater than elements to insert is greater
-            j = j-1
-        }
-
-        arr[j + 1] = numberToInsert;//inserts number to right if it is greater.
-    }
-    return arr; // Return the sorted array
-}
-// Example usage:
-const arr = [-5, 3, 1, 4, 2];
-const sortedArr = insertionSort(arr);
-console.log(sortedArr); // This will print the sorted array
+// // Example usage:
+// const arr = [-5, 3, 1, 4, 2];
+// const sortedArr = insertionSort(arr);
+// console.log(sortedArr); // This will print the sorted array
 
 
 // QUICK SORT
@@ -606,30 +607,30 @@ CALLBACK QUEUE IN JAVASCRIPT RUNTIME
 // }
 
 
-function plusMinus(arr) {
-    let positiveCount = 0;
-    let negativeCount = 0;
-    let zeroCount = 0;
-    const n = arr.length;
-
-    for (let i = 0; i < n; i++) {
-        if (arr[i] > 0) {
-            positiveCount++;
-        } else if (arr[i] < 0) {
-            negativeCount++;
-        } else {
-            zeroCount++;
-        }
-    }
-
-    const positiveProportion = (positiveCount / n).toFixed(6);
-    const negativeProportion = (negativeCount / n).toFixed(6);
-    const zeroProportion = (zeroCount / n).toFixed(6);
-
-    console.log(positiveProportion);
-    console.log(negativeProportion);
-    console.log(zeroProportion);
-}
+// function plusMinus(arr) {
+//     let positiveCount = 0;
+//     let negativeCount = 0;
+//     let zeroCount = 0;
+//     const n = arr.length;
+//
+//     for (let i = 0; i < n; i++) {
+//         if (arr[i] > 0) {
+//             positiveCount++;
+//         } else if (arr[i] < 0) {
+//             negativeCount++;
+//         } else {
+//             zeroCount++;
+//         }
+//     }
+//
+//     const positiveProportion = (positiveCount / n).toFixed(6);
+//     const negativeProportion = (negativeCount / n).toFixed(6);
+//     const zeroProportion = (zeroCount / n).toFixed(6);
+//
+//     console.log(positiveProportion);
+//     console.log(negativeProportion);
+//     console.log(zeroProportion);
+// }
 
 // Sample input
 // const arrr = [-4, 3, -9, 0, 4, 1];
@@ -644,3 +645,88 @@ function staircase(n) {
         console.log(space + step);
     }
 }
+
+// function reversePrint(llist) {
+//     let emptyArr = []
+//     let reverseArr = []
+//     for (let i = 0; i < llist.length; i++) {
+//         let emptyArr = llist[i].push
+//         let reverseArr = emptyArr.pop()
+//     }
+//
+// }
+
+
+// // takes a series of numbers, puts it in an array to collect them in the order submitted while skipping over null values using the push method, then to reverse the array we use the pop method to remove the last element and "pop" it into the front of a new array. this runs for the length of the new array that is formed during the first while loop.
+// function reversePrint(llist) {
+//     let current = llist;
+//     let stack = [];
+//     while (current !== null) {
+//         stack.push(current.data);
+//         current = current.next;
+//     }
+//     while (stack.length > 0) {
+//         console.log(stack.pop());
+//     }
+// }
+//
+//
+// // recursive method for completing the same task. recursion is a programming pattern the uses its function to continue calling on itself provided a smaller input each iteration
+// function reversePrint(llist) {
+//     if (llist === null) {
+//         return;
+//     }
+//     reversePrint(llist.next);
+//     console.log(llist.data);
+// }
+
+
+// function gradingStudents(grades) {
+//     const roundedGrades = [];
+//     for (const grade of grades) {
+//         if (grade < 38) {
+//             roundedGrades.push(grade);
+//         } else {
+//             const nextMultipleOf5 = Math.ceil(grade / 5) * 5;
+//             if (nextMultipleOf5 - grade < 3) {
+//                 roundedGrades.push(nextMultipleOf5);
+//             } else {
+//                 roundedGrades.push(grade);
+//             }
+//         }
+//     }
+//     return roundedGrades;
+// }
+//
+// gradingStudents(38)
+
+// function camelcase(s) {
+//     let count = 1;
+//     for(let i in s){
+//         if(s.charAt(i) === s.charAt(i).toUpperCase()){
+//             count++
+//         }
+//     }
+//     return count
+// }
+
+// console.log(camelcase("oneTwoThree"));
+
+
+
+const num1 = [6,2,3]
+const num2 = [3,2,1]
+
+
+    var addTwoNumbers = function (l1, l2){
+        for (let i = 0; i < l1.length; i++) {
+            let reversalL1 = l1.slice().reverse()
+            let reversalL2 = l2.slice().reverse()
+            // let sum = reversalL1[i] + reversalL2[i]
+
+        }
+        console.log(reversalL1, reversalL2)
+    }
+
+
+    addTwoNumbers(num1,num2)
